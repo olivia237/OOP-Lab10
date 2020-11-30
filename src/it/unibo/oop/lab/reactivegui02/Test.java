@@ -1,5 +1,11 @@
 package it.unibo.oop.lab.reactivegui02;
 
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  * Exercise on a reactive GUI.
  */
@@ -31,6 +37,28 @@ public final class Test {
      * deve essere volatile? - la disabilitazione dei pulsanti sia realizzata
      * col metodo setEnabled
      */
+    
+    public final class ConcurrentGUI  {
+    
+    private JFrame frame = new JFrame();
+    
+    public ConcurrentGUI() {
+    private final JButton down = new JButton("down");
+    private final JButton up = new JButton("up");
+    final JPanel panel = new JPanel();
+    panel.setLayout(new BorderLayout());
+    private final JButton stop = new JButton("stop");
+    panel.add(down, BorderLayout.CENTER);
+    frame.setContentPane(panel);
+    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    
+    panel.add(stop);
+    panel.add(down);
+    panel.add(up);
+    frame.getContentPane().add(panel);
+    frame.setVisible(true);
+    
+    }
 
     /**
      * 
